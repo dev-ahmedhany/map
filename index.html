@@ -17,12 +17,12 @@
 <script>
 
 // 1.) BASEMAPS
-var osm = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {subdomains:'abc', maxZoom:19, noWrap:true, attribution:'<a href="http://www.openstreetmap.org">Openstreetmap</a> | <a href="http://www.openstreetmap.org/copyright/">OpenStreetMap</a>' });
-var arcgis = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {subdomains:'abc', maxZoom:19, noWrap:true, attribution:'<a href="http://www.thunderforest.com">Thunderforest</a> | <a href="http://www.openstreetmap.org/copyright/">OpenStreetMap</a>' });
+var osm = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {subdomains:'abc', maxZoom:19, noWrap:true, attribution:'<a href="http://www.openstreetmap.org">Openstreetmap</a>' });
+var arcgis = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', { maxZoom:19, noWrap:true, attribution:'<a href="https://www.esri.com/">Powered by ESRI</a>' });
 
 
 // 2.) OVERLAYMAPS
-var osm_overlay = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {maxNativeZoom: 18, maxZoom:19, noWrap:true, opacity:0.7, attribution:'<a href="http://korona.geog.uni-heidelberg.de/contact.html">Uni-Heidelberg</a>' });
+var osm_overlay = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {subdomains:'abc',maxNativeZoom: 18, maxZoom:19, noWrap:true, opacity:0.7, attribution:'<a href="http://www.openstreetmap.org">Openstreetmap</a>' });
 
 // LAYERMENU
 var baseMaps = { 
