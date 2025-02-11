@@ -1,0 +1,41 @@
+<!DOCTYPE html> 
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Blend 2 maps</title>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.3/dist/leaflet.css" />
+<script src="https://unpkg.com/leaflet@1.0.3/dist/leaflet.js"></script>
+<style>
+    html, body, #map { height: 100%; }
+    html, body, #map { margin: 0; padding: 0; }
+</style>
+</head>
+
+<body>
+<div id="map"></div>
+<script>
+
+// 1.) BASEMAPS
+var osm = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {subdomains:'abc', maxZoom:19, noWrap:true, attribution:'<a href="http://www.openstreetmap.org">Openstreetmap</a> | <a href="http://www.openstreetmap.org/copyright/">OpenStreetMap</a>' });
+var arcgis = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {subdomains:'abc', maxZoom:19, noWrap:true, attribution:'<a href="http://www.thunderforest.com">Thunderforest</a> | <a href="http://www.openstreetmap.org/copyright/">OpenStreetMap</a>' });
+
+
+// 2.) OVERLAYMAPS
+var osm_overlay = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {maxNativeZoom: 18, maxZoom:19, noWrap:true, opacity:0.7, attribution:'<a href="http://korona.geog.uni-heidelberg.de/contact.html">Uni-Heidelberg</a>' });
+
+// LAYERMENU
+var baseMaps = { 
+    "OpenStreetMap": osm,
+    "ArcGIS": arcgis,
+};
+
+var map = L.map ( 'map', { center: [30.32, 31.75], zoom: 13, layers: [arcgis] } );
+var overlayMaps = {
+    "Open street Map": osm_overlay,
+};
+var ctr_mapLayers = L.control.layers(baseMaps, overlayMaps).addTo(map);
+
+</script>
+</body>
+</html>
